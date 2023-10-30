@@ -1,0 +1,9 @@
+1. The classes WarVersionOne and WarVersionTwoAndThree follow the Creator pattern of the GRASP principles. They are the objects that need the players, for the game to play so they instantiate these players in the code. Likewise with the score tracker object. Similarily this flows down as Players create their needed decks.
+
+2. Likewise these classes also demonstrate the High Cohesion pattern with the Player, Deck and Card classes as the WarVersionOne and WarVersionTwoAndThree are not dependent on the Card class and the Player -> Deck handles the creation of the cards.
+
+3. The War class in warInterface allows for the Open Closed principle to be followed with WarVersionOne and WarVersionTwoAndThree. Specifically with playing a round and determining the winner based on the version. In the WarGame main runner this allows for the findWinner to be called each version with their own implementation of the method to determine winner based on version. This means that the findWinner of each method doesn't have to be updated if a new version of the game is made just the implementation of a new version.
+
+4. The Player and Deck classes follow the information expert pattern as the removing card and removing top card functionality is assigned to the Deck class. The Deck class has the necessary information of the deck including it's size to determine which card to remove from the deck. It is not necessary for the Player to remove the Card as the Player doesn't need to access the card. 
+
+5(Extra). Similarily the Player class follows the High Cohesion as the Player does not access or need the Card class the Deck handles the cards. Likewise with the WarVersionOne and WarVersionTwoAndThree does not need to access the Card class.
