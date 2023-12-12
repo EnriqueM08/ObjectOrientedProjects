@@ -1,0 +1,7 @@
+SELECT DISTINCT client_id FROM files WHERE file_datetime > "2023-11-01 00:00:00" AND file_datetime < "2023-11-19 11:59:59" AND fileUploader = "rre165" GROUP BY client_id HAVING COUNT(DISTINCT file_type) = 8;
+
+SELECT DISTINCT client_id FROM files WHERE file_datetime > "2023-11-01 00:00:00" AND file_datetime < "2023-11-19 11:59:59" AND fileUploader = "rre165" GROUP BY client_id HAVING COUNT(DISTINCT file_type) != 8;
+
+SELECT fileType FROM documentTypes WHERE fileType NOT IN (SELECT DISTINCT file_type from files WHERE file_datetime > "2023-11-01 00:00:00" AND file_datetime < "2023-11-19 11:59:59" AND fileUploader = "rre165" AND client_id = "$clientID");
+
+SELECT clients.client_id FROM clients INNER JOIN files ON clients.client_id = files.client_id GROUP BY client_id HAVING COUNT(file_Name) = 0;
